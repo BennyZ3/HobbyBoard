@@ -4,6 +4,7 @@ const express = require("express");
 
 //IMPORT QUERIES
 const { testQuery } = require("./queries/testQuery");
+const projectControllers = require("./controllers/projectControllers");
 
 // CONFIGURATION
 const app = express();
@@ -11,6 +12,7 @@ const app = express();
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json()); // Parse incoming JSON
+app.use("/projects", projectControllers);
 
 // ROUTES
 //async, so we can use query correctly

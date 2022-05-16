@@ -9,6 +9,8 @@ import ProjectDetails from "./pages/ProjectDetails";
 import NavBar from "./components/common/NavBar";
 import BackButton from "./components/common/BackButton";
 
+import UserSignIn from "./pages/UserSignIn";
+
 function App() {
   const [res, setRes] = useState("Loading...");
   const URL = process.env.REACT_APP_API_URL;
@@ -41,6 +43,8 @@ function App() {
               </header>
             }
           />
+
+          <Route path="/signIn" element={<UserSignIn/>}/>
           <Route path="/projects/new" element={<New />} />
           <Route path="/projects" element={<AllProjects />} />
           <Route path="/projects/:pid" element={<ProjectDetails />} />

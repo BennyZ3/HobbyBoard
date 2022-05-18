@@ -35,11 +35,11 @@ function UserSignInForm(){
             <form className="UserSignInForm" onSubmit={handleSubmit} onChange={handleInputChange}>
                 <div className="username-input">
                     <label htmlFor="username">Username</label>
-                    <input id="username" name="username" type="text" required/>
+                    <input id="username" name="username" type="text" placeholder="username" required/>
                 </div>
                 <div className="password-input">
                     <label htmlFor="password">Password</label>
-                    <input id="password" name="password" type="text" required/>
+                    <input id="password" name="password" type="text" placeholder="password" required/>
                 </div>
                 
                 <input type="submit" />

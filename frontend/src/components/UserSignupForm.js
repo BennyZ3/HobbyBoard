@@ -1,6 +1,7 @@
 import { useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import './UserSignupForm.css'
 
 function UserSignupForm(){
     const API = process.env.REACT_APP_API_URL;
@@ -46,28 +47,34 @@ function UserSignupForm(){
     }
 
     return (
-        <div className="UserSignupForm">
-            <form onChange={handleInputChange}>
+            <form className="UserSignupForm" onChange={handleInputChange}>
                 {chooseUserName ?
                 <>
-                    <label htmlFor="username"></label>
-                    <input id="username" name="username" type="text" placeholder={userInfo.email} required/>
+                    <div className="username-input">
+                        <label htmlFor="username"></label>
+                        <input id="username" name="username" type="text" placeholder={userInfo.email} required/>
+                    </div>
                     <input onClick={handleSubmit} type="submit"/>
-                </>
+                </>   
                 
                 :
                 <>
-                    <label htmlFor="email">Email</label>
-                    <input id="email" name="email" type="email" required />
-                    <label htmlFor="password">Password</label>
-                    <input id="password" name="password" type="text" />
-                    <label htmlFor="confirm-password">Confirm Password</label>
-                    <input id="confirm-password" name="password" type="text" />
+                    <div className="email-input">
+                        <label htmlFor="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="email" required />
+                    </div>
+                    <div className="password-input">
+                        <label htmlFor="password">Password</label>
+                        <input id="password" name="password" type="text" placeholder="password" />
+                    </div>
+                    <div className="password-input">
+                        <label htmlFor="confirm-password">Confirm password</label>
+                        <input id="confirm-password" name="password" type="text" placeholder="confirm password"/>
+                    </div>
                     <input onClick={inputUserName} type="submit"/>
                 </>
                 }
             </form>
-        </div>
     )
 }
 

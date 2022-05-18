@@ -22,6 +22,20 @@ const addNewUser = async (user) => {
   }
 };
 
+//confirm if username matched up with password
+const findUser = async (user) => {
+  let { username, password } = user;
+  try {
+    const user = await db.one(
+      "SELECT * FROM users WHERE username=$1 AND password=$2",
+      [username, password]
+    );
+    return user;
+  } catch (error) {
+    return error;
+  }
+};
+
 //temp getAllUsers for testing
 const getAllUsers = async () => {
   try {
@@ -32,4 +46,4 @@ const getAllUsers = async () => {
   }
 };
 
-module.exports = { addNewUser, getAllUsers };
+module.exports = { addNewUser, getAllUsers, findUser };

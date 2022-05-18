@@ -1,5 +1,6 @@
+const { request } = require("express");
 const express = require("express");
-const { addNewUser, getAllUsers } = require("../queries/userQueries");
+const { addNewUser, getAllUsers, findUser } = require("../queries/userQueries");
 
 const users = express.Router();
 
@@ -23,6 +24,17 @@ users.get("/", async (request, response) => {
   console.log("Get request to users");
   const allUsers = await getAllUsers();
   response.status(200).json(allUsers);
+});
+
+// Boolean response for a signin check
+users.post("/signin", async (request, response) => {
+  console.log("Get signin check");
+  const user = await findUser(request.body);
+  if (user.username) {
+    response.status(200).json(user.username);
+  } else {
+    response.status(400).json(false);
+  }
 });
 
 module.exports = users;

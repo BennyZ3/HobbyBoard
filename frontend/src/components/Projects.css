@@ -6,6 +6,8 @@
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 20px;
   grid-auto-rows: 125px;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 .Projects a,
@@ -14,4 +16,11 @@
 .Projects a:active {
   color: black;
   text-decoration: none;
+}
+
+.AllProjects {
+  box-sizing: border-box;
+  height: calc(100% - 70px - 70px);
+  width: 100%;
+  overflow-x: scroll;
 }

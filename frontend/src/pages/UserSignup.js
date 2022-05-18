@@ -1,4 +1,5 @@
 import UserSignupForm from "../components/UserSignupForm"
+import './UserSignup.css'
 
 function UserSignup(){
     return (

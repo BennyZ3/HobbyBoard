@@ -42,7 +42,7 @@ projects.delete("/:id", async (req, res) => {
 //put project
 projects.put("/:id", async (req, res) => {
   const update = await updateProject(req.params.id, req.body);
-  update.project_id
+  update.id
     ? res.status(200).json(update)
     : res.status(404).json({ error: "error" });
 });

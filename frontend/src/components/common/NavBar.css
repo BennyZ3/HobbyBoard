@@ -1,9 +1,51 @@
-.Nav img {
-  display: inline-block;
-  padding: 25px 20px;
-}
-
 .Nav {
   position: absolute;
+  height: 70px;
   width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.Nav img {
+  display: inline-block;
+  padding: 0px 5%;
+  max-height: 24px;
+  min-height: 18px;
+  height: 5vw;
+}
+
+.Nav .TopBarM {
+  display: none;
+}
+
+@media screen and (min-width: 719px) {
+  .Nav {
+    top: 0px;
+    padding: 0 5%;
+  }
+  .Nav .TopBarM {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .Nav img {
+    padding: 0px 1.5%;
+    max-height: 30px;
+  }
+
+  .Nav .TopBarM img {
+    padding: 0px 1.5%;
+  }
+
+  .Nav .TopBarM .back-button {
+    position: relative;
+    margin: 0px;
+  }
+
+  .Nav .TopBarM .topLogo {
+    max-height: 50px;
+    height: 50px;
+  }
 }

@@ -1,15 +1,18 @@
 .Projects {
   box-sizing: border-box;
-  width: 100%;
   padding: 5%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 20px;
   grid-auto-rows: 125px;
   overflow-y: scroll;
-  height: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
+.Projects::-webkit-scrollbar {
+  display: none;
+}
 .Projects a,
 .Projects a:hover,
 .Projects a:visited,
@@ -20,7 +23,21 @@
 
 .AllProjects {
   box-sizing: border-box;
-  height: calc(100% - 70px - 70px);
+  height: calc(100% - 140px);
   width: 100%;
-  overflow-x: scroll;
+}
+
+@media screen and (min-width: 719px) {
+  .AllProjects {
+    height: 100%;
+    padding-top: 70px;
+  }
+  .Projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1000px) {
+  .Projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

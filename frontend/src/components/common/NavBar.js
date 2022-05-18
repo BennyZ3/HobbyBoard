@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import TopBarM from "./TopBarM";
 import plus from "../../assets/circle-plus.svg";
 import profile from "../../assets/profile-circled.svg";
 import settings from "../../assets/settings.svg";
@@ -19,6 +20,7 @@ const NavBar = () => {
 
   return (
     <nav className="Nav">
+      <TopBarM />
       <img src={profile} alt="Profile" />
       <img src={settings} alt="settings" />
       <img src={home} alt="home" />

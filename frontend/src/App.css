@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-logo {
@@ -14,14 +15,15 @@
 }
 
 .App-header {
+  box-sizing: border-box;
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: calc(100% - 140px);
 }
 
 .App-link {
@@ -42,9 +44,24 @@ body {
   height: 100vh;
   width: 100vw;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 main {
   box-sizing: border-box;
   height: 100vh;
   width: 100vw;
+}
+
+@media screen and (min-width: 719px) {
+  .App-header {
+    padding-top: 70px;
+    height: 100%;
+  }
 }

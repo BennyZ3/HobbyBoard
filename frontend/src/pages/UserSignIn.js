@@ -1,8 +1,9 @@
 import UserSignInForm from "../components/UserSignInForm"
+import './UserSignIn.css'
 
 function UserSignIn(){
     return (
-        <div>
+        <div className='UserSignIn'>
             <UserSignInForm/>
         </div>
     )

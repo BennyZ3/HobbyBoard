@@ -14,7 +14,10 @@ CREATE TABLE users (
     password TEXT,
     email TEXT NOT NULL,
     date DATE,
-    details TEXT
+    details TEXT,
+    created_projects TEXT[],
+    collaborated_projects TEXT[],
+    profile_image TEXT
 );
 
 CREATE TABLE projects (

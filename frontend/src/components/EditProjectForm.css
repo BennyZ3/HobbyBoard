@@ -1,0 +1,22 @@
+.project-name-input, .project-details-input, .project-image-input{
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 34px;
+}
+
+.project-name-input label, .project-details-input label, .project-image-input label{
+    width: fit-content;
+    display: block;
+}
+
+.project-name-input input, .project-details-input input, .project-image-input input{
+    height: 24px;
+    width: 200px;
+    /* border-top: none;
+    border-left: none;
+    border-right: none; */
+}
+
+.NewProjectForm input[type="submit"]{
+    margin-bottom: 34px;
+}

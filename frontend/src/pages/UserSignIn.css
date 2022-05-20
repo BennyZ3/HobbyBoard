@@ -3,4 +3,11 @@
     height: calc(100% - 140px);
     width: 100%;
     padding-top: 25%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
+.UserSignIn::-webkit-scrollbar {
+    display: none;
+  }

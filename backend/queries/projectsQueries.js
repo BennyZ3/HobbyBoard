@@ -58,7 +58,7 @@ const deleteProject = async (id) => {
   // try to delete project
   try {
     const removeProject = await db.one(
-      "DELETE FROM projects WHERE id=$1 RETURNING *",
+      "DELETE FROM projects WHERE project_id=$1 RETURNING *",
       id
     );
     //return removeProject
@@ -77,7 +77,7 @@ const updateProject = async (id, project) => {
   try {
     const { name, details, project_image, archived } = project;
     const update = await db.one(
-      "UPDATE projects SET name=$2, details=$3, project_image=$4, archived=$5 WHERE id=$1 RETURNING *",
+      "UPDATE projects SET name=$2, details=$3, project_image=$4, archived=$5 WHERE project_id=$1 RETURNING *",
       [id, name, details, project_image, archived]
     );
     //return update
@@ -88,6 +88,21 @@ const updateProject = async (id, project) => {
   }
 };
 
+// query to change the archive status of a project
+// input(project_id, boolean)
+//output => project
+const updateArchiveStatus = async (id, archiveBool) => {
+  try {
+    const update = await db.one(
+      "UPDATE projects SET archived=$2 WHERE project_id=$1 RETURNING *",
+      [id, archiveBool]
+    );
+    return update;
+  } catch (error) {
+    return error;
+  }
+};
+
 //export query functions
 module.exports = {
   getAllProjects,
@@ -95,4 +110,5 @@ module.exports = {
   getOneProject,
   deleteProject,
   updateProject,
+  updateArchiveStatus,
 };

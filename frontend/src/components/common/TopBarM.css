@@ -20,6 +20,10 @@
   height: 30px;
 }
 
+.TopBarM img:hover {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 719px) {
   .TopBarM {
     display: none;

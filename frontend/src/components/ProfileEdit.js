@@ -1,9 +1,9 @@
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import './ProfileEdit.css'
 
-const ProfileEdit = () => {
-  const { pid } = useParams();
+const ProfileEdit = ({ username }) => {
   const navigator = useNavigate();
   const API = process.env.REACT_APP_API_URL;
   const [user, setUser] = useState({
@@ -11,28 +11,42 @@ const ProfileEdit = () => {
     password: "",
     email: "",
     details: "",
+    profile_image: "",
   });
 
   useEffect(() => {
-    axios.get(`${API}/profile`).then((response) => setUser(response.data));
-  }, [API, pid]);
+    axios
+      .get(`${API}users/${username}`)
+      .then((response) => setUser(response.data));
+  }, [API, username]);
 
   const handleChange = (event) => {
     setUser({
       ...user,
-      [event.target.pid]: event.target.value,
+      [event.target.id]: event.target.value,
     });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.put(`${API}/profile`, user).then(() => navigator(`/profile`));
+    axios
+      .put(`${API}users/${username}`, user)
+      .then(() => navigator(`/profile`));
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">username:</label>
+    <form onSubmit={handleSubmit}>
+      <div className="edit-image-input">
+        <label htmlFor="profile_image">Image:</label>
+        <input
+          id="profile_image"
+          type="text"
+          value={user.profile_image || ""}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="edit-username-input">
+        <label htmlFor="username">Username:</label>
         <input
           id="username"
           type="text"
@@ -40,14 +54,18 @@ const ProfileEdit = () => {
           onChange={handleChange}
           required
         />
+      </div>
+      <div className="edit-password-input">
         <label htmlFor="password">Password:</label>
-        <textarea
+        <input
           id="password"
           type="text"
           value={user.password}
           onChange={handleChange}
           required
         />
+      </div>
+      <div className="edit-email-input">
         <label htmlFor="email">Email:</label>
         <input
           id="email"
@@ -55,6 +73,8 @@ const ProfileEdit = () => {
           value={user.email}
           onChange={handleChange}
         />
+      </div>
+      <div className="edit-details-input">
         <label htmlFor="details">Details:</label>
         <input
           id="details"
@@ -62,9 +82,9 @@ const ProfileEdit = () => {
           value={user.details}
           onChange={handleChange}
         />
-        <input type="submit" />
-      </form>
-    </div>
+      </div>
+      <input type="submit" />
+    </form>
   );
 };
 

@@ -1,6 +1,12 @@
-const { request } = require("express");
+const { request, response } = require("express");
 const express = require("express");
-const { addNewUser, getAllUsers, findUser } = require("../queries/userQueries");
+const {
+  addNewUser,
+  getAllUsers,
+  findUser,
+  getOneUser,
+  updateUser,
+} = require("../queries/userQueries");
 
 const users = express.Router();
 
@@ -26,6 +32,13 @@ users.get("/", async (request, response) => {
   response.status(200).json(allUsers);
 });
 
+users.get("/:user", async (request, response) => {
+  console.log("Get requested user's profile");
+  const { user } = request.params;
+  const targetUser = await getOneUser(user);
+  response.status(200).json(targetUser);
+});
+
 // Boolean response for a signin check
 users.post("/signin", async (request, response) => {
   console.log("Get signin check");
@@ -35,6 +48,14 @@ users.post("/signin", async (request, response) => {
   } else {
     response.status(400).json(false);
   }
+});
+
+users.put("/:user", async (request, response) => {
+  console.log("Put request to users/username");
+  const edits = request.body;
+  const { user } = request.params;
+  const editedUser = await updateUser(edits, user);
+  response.status(200).json(editedUser);
 });
 
 module.exports = users;

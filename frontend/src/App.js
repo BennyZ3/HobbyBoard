@@ -12,6 +12,7 @@ import UserSignup from "./pages/UserSignup";
 import UserSignIn from "./pages/UserSignIn";
 import Profile from "./pages/Profile";
 import EditP from "./pages/EditP";
+import EditProjectPage from "./pages/EditProjectPage";
 
 function App() {
   const [res, setRes] = useState("Loading...");
@@ -47,8 +48,10 @@ function App() {
           <Route path="/signup" element={<UserSignup />} />
           <Route path="/projects" element={<AllProjects />} />
           <Route path="/projects/:pid" element={<ProjectDetails />} />
+          <Route path="/projects/:pid/edit" element={<EditProjectPage />} />
           <Route path="/projects/new" element={<New />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:username" element={<Profile />} />
           <Route path="/profile/editProfile" element={<EditP />} />
         </Routes>
         <NavBar />

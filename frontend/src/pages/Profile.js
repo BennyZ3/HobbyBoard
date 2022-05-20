@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import ProfileDetails from "../components/ProfileDetails";
-import './Profile.css'
+import "./Profile.css";
 
 const Profile = () => {
   //fetch username from cookies
@@ -14,7 +14,11 @@ const Profile = () => {
 
   return (
     <div className="Profile">
-      <ProfileDetails username={user} />
+      {!document.cookie.split("=")[1] && !username ? (
+        <p>Please sign in to view your profile!</p>
+      ) : (
+        <ProfileDetails username={user} />
+      )}
     </div>
   );
 };

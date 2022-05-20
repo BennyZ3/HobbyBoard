@@ -1,12 +1,13 @@
-import UserSignInForm from "../components/UserSignInForm"
-import './UserSignIn.css'
+import UserSignInForm from "../components/UserSignInForm";
+import "./UserSignIn.css";
 
-function UserSignIn(){
-    return (
-        <div className='UserSignIn'>
-            <UserSignInForm/>
-        </div>
-    )
+function UserSignIn() {
+  const user = document.cookie.split("=")[1];
+  return (
+    <div className="UserSignIn">
+      {user ? <p>Already signed in as "{user}"</p> : <UserSignInForm />}
+    </div>
+  );
 }
 
-export default UserSignIn
+export default UserSignIn;

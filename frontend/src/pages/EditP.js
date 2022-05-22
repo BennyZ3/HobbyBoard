@@ -1,11 +1,15 @@
 import ProfileEdit from "../components/ProfileEdit";
-import './EditProfile.css'
+import "./EditProfile.css";
 
 const EditP = () => {
   const user = document.cookie.split("=")[1];
   return (
     <div className="EditProfile">
-      <ProfileEdit username={user} />
+      {user ? (
+        <ProfileEdit username={user} />
+      ) : (
+        <p>Please sign in to edit your profile!</p>
+      )}
     </div>
   );
 };

@@ -1,13 +1,20 @@
-.EditProfile{
-    box-sizing: border-box;
-    height: calc(100% - 140px);
-    width: 100%;
-    padding-top: 25%;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+.EditProfile {
+  box-sizing: border-box;
+  height: calc(100% - 140px);
+  width: 100%;
+  padding-top: 25%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .EditProfile::-webkit-scrollbar {
-    display: none;
+  display: none;
+}
+
+@media screen and (min-width: 719px) {
+  .EditProfile {
+    height: 100%;
+    padding-top: 70px;
   }
+}

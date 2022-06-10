@@ -4,11 +4,11 @@ App allows users to create pages where they can share projects they are working 
 
 ### Front end Deployment
 
-[Front end via Netlify](https://hobbyboard.netlify.app/)
+[Front end via Netlify](https://creative-gaufre-24422b.netlify.app/)
 
 ### Back-end Deployment
 
-[Back end via Heroku](https://hobbyboard.herokuapp.com/)
+[Back end via Heroku](https://guarded-garden-92290.herokuapp.com/)
 
 ## User Story
 

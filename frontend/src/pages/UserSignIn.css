@@ -51,3 +51,7 @@ a {
   border-radius: 5px;
   background-color: #589bc1;
 }
+
+.UserSignIn input {
+  color: white;
+}
